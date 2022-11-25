@@ -6,7 +6,7 @@ export const SearchMoviesList = ({ movies }) => {
       {movies.map(movie => {
         return (
           <li key={movie.id}>
-            <NavLink to="movies/:movieId">{movie.title}</NavLink>
+            <NavLink to=":movieId">{movie.title}</NavLink>
           </li>
         );
       })}
