@@ -1,3 +1,5 @@
+import image from '../../images/no-image-icon.jpg';
+
 export const CardMovie = ({
   movie: {
     title,
@@ -8,7 +10,7 @@ export const CardMovie = ({
     genres,
   },
   getGenres,
-  defaultSrc = 'https://www.freeiconspng.com/uploads/no-image-icon-23.jpg',
+  defaultSrc = image,
 }) => {
   return (
     <div>
@@ -20,7 +22,7 @@ export const CardMovie = ({
               : defaultSrc
           }
           alt={title}
-          width="250"
+          width="300"
         />
       </div>
       <div>
