@@ -5,7 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { fetchMovies } from 'services/fetchMovies';
 import { SearchBox } from 'components/SearchBox';
-import { SearchMoviesList } from 'components/SearchMovies';
+import { MoviesList } from 'components/MoviesList';
 
 const Movies = () => {
   const [queryMovie, setQueryMovie] = useState('');
@@ -23,9 +23,11 @@ const Movies = () => {
 
         setLoaded(true);
 
-        const moviesList = await fetchMovies(
+        const dataMoviesList = await fetchMovies(
           `https://api.themoviedb.org/3/search/movie?api_key=084c550b6f1767443109bcf4bcaee21b&query=${query}&language=en-US&page=1&include_adult=false`
         );
+
+        const moviesList = dataMoviesList.results;
 
         if (moviesList.length < 1) {
           toast.info(
@@ -61,7 +63,7 @@ const Movies = () => {
         value={queryMovie}
         setQueryMovie={setQueryMovie}
       />
-      {query && <SearchMoviesList movies={movies} />}
+      {query && <MoviesList movies={movies} />}
       {loaded && (
         <ThreeDots
           height="80"
