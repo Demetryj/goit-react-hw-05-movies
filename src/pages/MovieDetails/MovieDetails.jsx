@@ -1,36 +1,71 @@
+import { useState, useEffect } from 'react';
 import { NavLink, Outlet, useParams } from 'react-router-dom';
+import { ThreeDots } from 'react-loader-spinner';
+import { fetchMovies } from '../../services/fetchMovies';
+import { getGenresForDetailsMovie } from '../../services/getGenresForDetailsMovie';
+import { CardMovie } from 'components/CardMovie';
 
 export const MovieDetails = () => {
+  const [movie, setMovie] = useState(null);
+  const [loaded, setLoaded] = useState(false);
+  const [error, setError] = useState(null);
   const { movieId } = useParams();
   console.log(movieId);
 
+  useEffect(() => {
+    const fetch = async () => {
+      try {
+        setLoaded(true);
+
+        const dataMovie = await fetchMovies(
+          `https://api.themoviedb.org/3/movie/${movieId}?api_key=084c550b6f1767443109bcf4bcaee21b&language=en`
+        );
+        console.log(dataMovie);
+        setMovie({ ...dataMovie });
+      } catch (error) {
+        console.log(error.message);
+        setError(error);
+      } finally {
+        setLoaded(false);
+      }
+    };
+
+    fetch();
+  }, [movieId]);
+
   return (
     <main>
-      <div>
+      {movie && (
         <div>
-          <img src="" alt="" />
+          <CardMovie movie={movie} getGenres={getGenresForDetailsMovie} />
+          <div>
+            <p>Additional information</p>
+            <ul>
+              <li>
+                <NavLink to="cast">Cast</NavLink>
+              </li>
+              <li>
+                <NavLink to="reviews">Reviews</NavLink>
+              </li>
+            </ul>
+          </div>
+          <Outlet />
         </div>
-        <div>
-          <p></p>
-          <p></p>
-          <p></p>
-          <p></p>
-          <p></p>
-          <p></p>
-        </div>
-        <div>
-          <p>Additional information</p>
-          <ul>
-            <li>
-              <NavLink to=":movieId">Cast</NavLink>
-            </li>
-            <li>
-              <NavLink to=":movieId">Reviews</NavLink>
-            </li>
-          </ul>
-        </div>
-        <Outlet />
-      </div>
+      )}
+
+      {error && <p>Something wrong. Try again later.</p>}
+
+      {loaded && (
+        <ThreeDots
+          height="80"
+          width="80"
+          radius="9"
+          color="blue"
+          ariaLabel="three-dots-loading"
+          wrapperStyle={{ justifyContent: 'center' }}
+          visible={true}
+        />
+      )}
     </main>
   );
 };
