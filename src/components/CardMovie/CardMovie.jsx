@@ -1,4 +1,4 @@
-import { NavLink, Outlet } from 'react-router-dom';
+import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
 import image from 'images/no-image-icon.jpg';
 import { getDateYear } from 'services/getDateYear';
 import { getScore } from 'services/getScore';
@@ -13,17 +13,24 @@ export const CardMovie = ({
     genres,
   },
   getGenres,
-  defaultSrc = image,
 }) => {
+  const location = useLocation();
+
   return (
     <>
       <div>
+        <Link to={location.state?.from ?? '/'}>
+          {/* <NavLink to={location.state?.from ?? "/"}>  вказувати альтернативний варіант шляху*/}
+          <div>
+            <p>Go back</p>
+          </div>
+        </Link>
         <div>
           <img
             src={
               poster_path
                 ? `https://image.tmdb.org/t/p/w500/${poster_path}`
-                : defaultSrc
+                : image
             }
             alt={title}
             width="300"
