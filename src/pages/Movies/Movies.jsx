@@ -3,9 +3,9 @@ import { useSearchParams } from 'react-router-dom';
 import { ThreeDots } from 'react-loader-spinner';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { fetchMovies } from 'services/fetchMovies';
 import { SearchBox } from 'components/SearchBox';
 import { MoviesList } from 'components/MoviesList';
+import { fetchMovies } from 'services/fetchMovies';
 
 const Movies = () => {
   const [queryMovie, setQueryMovie] = useState('');
