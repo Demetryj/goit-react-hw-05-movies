@@ -11,6 +11,7 @@ export const MovieDetails = () => {
   const [error, setError] = useState(null);
   const { movieId } = useParams();
   console.log(movieId);
+  console.log(movie);
 
   useEffect(() => {
     const fetch = async () => {
@@ -21,7 +22,7 @@ export const MovieDetails = () => {
           `https://api.themoviedb.org/3/movie/${movieId}?api_key=084c550b6f1767443109bcf4bcaee21b&language=en`
         );
         console.log(dataMovie);
-        setMovie({ ...dataMovie });
+        setMovie(dataMovie);
       } catch (error) {
         console.log(error.message);
         setError(error);
