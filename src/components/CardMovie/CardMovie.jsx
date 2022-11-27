@@ -1,4 +1,7 @@
-import image from '../../images/no-image-icon.jpg';
+import { NavLink, Outlet } from 'react-router-dom';
+import image from 'images/no-image-icon.jpg';
+import { getDateYear } from 'services/getDateYear';
+import { getScore } from 'services/getScore';
 
 export const CardMovie = ({
   movie: {
@@ -13,34 +16,46 @@ export const CardMovie = ({
   defaultSrc = image,
 }) => {
   return (
-    <div>
+    <>
       <div>
-        <img
-          src={
-            poster_path
-              ? `https://image.tmdb.org/t/p/w500/${poster_path}`
-              : defaultSrc
-          }
-          alt={title}
-          width="300"
-        />
+        <div>
+          <img
+            src={
+              poster_path
+                ? `https://image.tmdb.org/t/p/w500/${poster_path}`
+                : defaultSrc
+            }
+            alt={title}
+            width="300"
+          />
+        </div>
+        <div>
+          <p>
+            {release_date ? `${title} (${getDateYear(release_date)})` : title}
+          </p>
+          <p>
+            {vote_average
+              ? `User Score: ${getScore(vote_average)}% `
+              : 'User Score: no score'}
+          </p>
+          <p>Overview</p>
+          <p>{overview ? overview : 'No overview'}</p>
+          <p>Genres</p>
+          <p>{getGenres(genres)}</p>
+        </div>
       </div>
       <div>
-        <p>
-          {release_date
-            ? `${title} (${new Date(release_date).getFullYear()})`
-            : title}
-        </p>
-        <p>
-          {vote_average
-            ? `User Score: ${Math.round(vote_average) * 10}% `
-            : 'User Score:'}
-        </p>
-        <p>Overview</p>
-        {overview && <p>{overview}</p>}
-        <p>Genres</p>
-        <p>{getGenres(genres)}</p>
+        <p>Additional information</p>
+        <ul>
+          <li>
+            <NavLink to="cast">Cast</NavLink>
+          </li>
+          <li>
+            <NavLink to="reviews">Reviews</NavLink>
+          </li>
+        </ul>
       </div>
-    </div>
+      <Outlet />
+    </>
   );
 };
