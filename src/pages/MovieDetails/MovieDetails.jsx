@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import { NavLink, Outlet, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { ThreeDots } from 'react-loader-spinner';
-import { fetchMovies } from '../../services/fetchMovies';
-import { getGenresForDetailsMovie } from '../../services/getGenresForDetailsMovie';
+import { fetchMovies } from 'services/fetchMovies';
+import { getGenresForDetailsMovie } from 'services/getGenresForDetailsMovie';
 import { CardMovie } from 'components/CardMovie';
 
 export const MovieDetails = () => {
@@ -38,18 +38,6 @@ export const MovieDetails = () => {
       {movie && (
         <div>
           <CardMovie movie={movie} getGenres={getGenresForDetailsMovie} />
-          <div>
-            <p>Additional information</p>
-            <ul>
-              <li>
-                <NavLink to="cast">Cast</NavLink>
-              </li>
-              <li>
-                <NavLink to="reviews">Reviews</NavLink>
-              </li>
-            </ul>
-          </div>
-          <Outlet />
         </div>
       )}
 
