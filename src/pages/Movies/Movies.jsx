@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { ThreeDots } from 'react-loader-spinner';
 import { ToastContainer, toast } from 'react-toastify';
@@ -14,9 +14,16 @@ const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('query') ?? '';
 
+  const isFirstRender = useRef(true);
+
   useEffect(() => {
     const searchQuery = async () => {
       try {
+        if (isFirstRender.current) {
+          isFirstRender.current = false;
+          return;
+        }
+
         if (query === '') {
           return;
         }

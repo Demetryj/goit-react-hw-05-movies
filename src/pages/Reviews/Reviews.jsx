@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import { ThreeDots } from 'react-loader-spinner';
 import ReviewsList from 'components/ReviewsList';
@@ -10,9 +10,16 @@ const Reviews = () => {
   const [error, setError] = useState(null);
   const { movieId } = useParams();
 
+  const isFirstRender = useRef(true);
+
   useEffect(() => {
     const fetch = async () => {
       try {
+        if (isFirstRender.current) {
+          isFirstRender.current = false;
+          return;
+        }
+
         setLoaded(true);
 
         const dataReviewsMovie = await fetchMovies(

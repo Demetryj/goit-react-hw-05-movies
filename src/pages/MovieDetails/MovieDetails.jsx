@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import { ThreeDots } from 'react-loader-spinner';
 import { fetchMovies } from 'services/fetchMovies';
@@ -12,10 +12,16 @@ const MovieDetails = () => {
   const { movieId } = useParams();
   console.log(movieId);
   console.log(movie);
+  const isFirstRender = useRef(true);
 
   useEffect(() => {
     const fetch = async () => {
       try {
+        if (isFirstRender.current) {
+          isFirstRender.current = false;
+          return;
+        }
+
         setLoaded(true);
 
         const dataMovie = await fetchMovies(

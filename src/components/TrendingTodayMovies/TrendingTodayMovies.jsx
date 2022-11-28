@@ -1,17 +1,23 @@
-import { useState, useEffect } from 'react';
-
+import { useState, useEffect, useRef } from 'react';
 import { ThreeDots } from 'react-loader-spinner';
 import { fetchMovies } from 'services/fetchMovies';
-import  MoviesList  from '../MoviesList';
+import MoviesList from '../MoviesList';
 
 const TrendingTodayMovies = () => {
   const [moviesTrending, setMoviesTrending] = useState([]);
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState(null);
 
+  const isFirstRender = useRef(true);
+
   useEffect(() => {
     const fetch = async () => {
       try {
+        if (isFirstRender.current) {
+          isFirstRender.current = false;
+          return;
+        }
+
         setLoaded(true);
 
         const dataMovies = await fetchMovies(
