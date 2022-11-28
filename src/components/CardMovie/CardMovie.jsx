@@ -1,9 +1,11 @@
+import { Suspense } from 'react';
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import image from 'images/no-image-icon.jpg';
 import { getDateYear } from 'services/getDateYear';
 import { getScore } from 'services/getScore';
 
-export const CardMovie = ({
+const CardMovie = ({
   movie: {
     title,
     poster_path,
@@ -62,7 +64,23 @@ export const CardMovie = ({
           </li>
         </ul>
       </div>
-      <Outlet />
+      <Suspense fallback={null}>
+        <Outlet />
+      </Suspense>
     </>
   );
 };
+
+CardMovie.propTypes = {
+  movie: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    poster_path: PropTypes.string.isRequired,
+    release_date: PropTypes.string,
+    vote_average: PropTypes.number,
+    overview: PropTypes.string,
+    genres: PropTypes.array.isRequired,
+  }).isRequired,
+  getGenres: PropTypes.func.isRequired,
+};
+
+export default CardMovie;

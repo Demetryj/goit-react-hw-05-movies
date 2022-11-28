@@ -1,4 +1,6 @@
-export const SearchBox = ({ handleSubmit, value, setQueryMovie }) => {
+import PropTypes from 'prop-types';
+
+const SearchBox = ({ handleSubmit, value, setQueryMovie }) => {
   return (
     <form onSubmit={handleSubmit}>
       <label>
@@ -15,3 +17,11 @@ export const SearchBox = ({ handleSubmit, value, setQueryMovie }) => {
     </form>
   );
 };
+
+SearchBox.propTypes = {
+  handleSubmit: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired,
+  setQueryMovie: PropTypes.func.isRequired,
+};
+
+export default SearchBox;

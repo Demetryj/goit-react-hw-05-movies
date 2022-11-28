@@ -1,6 +1,7 @@
 import { NavLink, useLocation } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-export const MoviesList = ({ movies, linkTo = false }) => {
+const MoviesList = ({ movies, linkTo = false }) => {
   const location = useLocation();
   // console.log(location);
 
@@ -24,3 +25,15 @@ export const MoviesList = ({ movies, linkTo = false }) => {
     </ul>
   );
 };
+
+MoviesList.propTypes = {
+  movies: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string,
+      name: PropTypes.string,
+    }).isRequired
+  ).isRequired,
+};
+
+export default MoviesList;

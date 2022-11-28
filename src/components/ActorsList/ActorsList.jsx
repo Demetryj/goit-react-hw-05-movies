@@ -1,6 +1,7 @@
+import PropTypes from 'prop-types';
 import image from 'images/no-image-icon.jpg';
 
-export const ActorsList = ({ actorsInfo }) => {
+const ActorsList = ({ actorsInfo }) => {
   return (
     <ul>
       {actorsInfo.map(({ id, name, character, profile_path }) => {
@@ -23,3 +24,16 @@ export const ActorsList = ({ actorsInfo }) => {
     </ul>
   );
 };
+
+ActorsList.propTypes = {
+  actorsInfo: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      character: PropTypes.string.isRequired,
+      profile_path: PropTypes.string,
+    })
+  ),
+};
+
+export default ActorsList;
