@@ -1,1 +1,1 @@
-export * from './TrendingTodayMovies';
+export { default } from './TrendingTodayMovies';

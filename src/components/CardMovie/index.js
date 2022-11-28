@@ -1,1 +1,1 @@
-export * from './CardMovie';
+export { default } from './CardMovie';
