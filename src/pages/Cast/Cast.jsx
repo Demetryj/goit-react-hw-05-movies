@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { ThreeDots } from 'react-loader-spinner';
-import { ActorsList } from 'components/ActorsList';
+import ActorsList from 'components/ActorsList';
 import { fetchMovies } from 'services/fetchMovies';
 
-export const Cast = () => {
+const Cast = () => {
   const [actors, setActors] = useState([]);
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState(null);
@@ -57,3 +57,5 @@ export const Cast = () => {
     </div>
   );
 };
+
+export default Cast;

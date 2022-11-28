@@ -1,5 +1,6 @@
-import { TrendingTodayMovies } from 'components/TrendingTodayMovies';
-export const Home = () => {
+import TrendingTodayMovies from 'components/TrendingTodayMovies';
+
+const Home = () => {
   return (
     <main>
       <h1>Trending today</h1>
@@ -7,3 +8,5 @@ export const Home = () => {
     </main>
   );
 };
+
+export default Home;

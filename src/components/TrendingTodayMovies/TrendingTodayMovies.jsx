@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 
 import { ThreeDots } from 'react-loader-spinner';
 import { fetchMovies } from 'services/fetchMovies';
-import { MoviesList } from '../MoviesList';
+import  MoviesList  from '../MoviesList';
 
-export const TrendingTodayMovies = () => {
+const TrendingTodayMovies = () => {
   const [moviesTrending, setMoviesTrending] = useState([]);
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState(null);
@@ -55,3 +55,5 @@ export const TrendingTodayMovies = () => {
     </main>
   );
 };
+
+export default TrendingTodayMovies;

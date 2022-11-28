@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { ThreeDots } from 'react-loader-spinner';
-import { ReviewsList } from 'components/ReviewsList';
+import ReviewsList from 'components/ReviewsList';
 import { fetchMovies } from 'services/fetchMovies';
 
-export const Reviews = () => {
+const Reviews = () => {
   const [reviews, setReviews] = useState([]);
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState(null);
@@ -58,3 +58,5 @@ export const Reviews = () => {
     </div>
   );
 };
+
+export default Reviews;

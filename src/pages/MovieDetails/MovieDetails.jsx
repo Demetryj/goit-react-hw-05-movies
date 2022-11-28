@@ -3,9 +3,9 @@ import { useParams } from 'react-router-dom';
 import { ThreeDots } from 'react-loader-spinner';
 import { fetchMovies } from 'services/fetchMovies';
 import { getGenresForDetailsMovie } from 'services/getGenresForDetailsMovie';
-import { CardMovie } from 'components/CardMovie';
+import CardMovie from 'components/CardMovie';
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
   const [movie, setMovie] = useState(null);
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState(null);
@@ -58,3 +58,5 @@ export const MovieDetails = () => {
     </main>
   );
 };
+
+export default MovieDetails;
