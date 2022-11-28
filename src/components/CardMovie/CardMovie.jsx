@@ -1,6 +1,7 @@
 import { Suspense } from 'react';
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { HiArrowNarrowLeft } from 'react-icons/hi';
 import image from 'images/no-image-icon.jpg';
 import { getDateYear } from 'services/getDateYear';
 import { getScore } from 'services/getScore';
@@ -24,6 +25,7 @@ const CardMovie = ({
         <Link to={location.state?.from ?? '/'}>
           {/* <NavLink to={location.state?.from ?? "/"}>  вказувати альтернативний варіант шляху*/}
           <div>
+            <HiArrowNarrowLeft />
             <p>Go back</p>
           </div>
         </Link>
