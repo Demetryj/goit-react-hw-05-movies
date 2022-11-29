@@ -10,8 +10,7 @@ const MovieDetails = () => {
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState(null);
   const { movieId } = useParams();
-  console.log(movieId);
-  console.log(movie);
+
   const isFirstRender = useRef(true);
 
   useEffect(() => {
@@ -43,9 +42,7 @@ const MovieDetails = () => {
   return (
     <main>
       {movie && (
-        <div>
-          <CardMovie movie={movie} getGenres={getGenresForDetailsMovie} />
-        </div>
+        <CardMovie movie={movie} getGenres={getGenresForDetailsMovie} />
       )}
 
       {error && <p>Something wrong. Try again later.</p>}

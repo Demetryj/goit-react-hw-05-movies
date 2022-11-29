@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 import { ThreeDots } from 'react-loader-spinner';
 import ActorsList from 'components/ActorsList';
 import { fetchMovies } from 'services/fetchMovies';
+import { Container } from 'components/Container';
+import { NoInfo } from 'components/NoInfo/';
 
 const Cast = () => {
   const [actors, setActors] = useState([]);
@@ -41,27 +43,31 @@ const Cast = () => {
   }, [movieId]);
 
   return (
-    <div>
-      {actors.length > 1 ? (
-        <ActorsList actorsInfo={actors} />
-      ) : (
-        <p>We don`t have information abaut actors for this movie.</p>
-      )}
+    <section>
+      <Container>
+        {actors.length > 1 ? (
+          <ActorsList actorsInfo={actors} />
+        ) : (
+          <NoInfo>
+            We don`t have information abaut actors for this movie.
+          </NoInfo>
+        )}
 
-      {error && <p>Something wrong. Try again later.</p>}
+        {error && <p>Something wrong. Try again later.</p>}
 
-      {loaded && (
-        <ThreeDots
-          height="80"
-          width="80"
-          radius="9"
-          color="blue"
-          ariaLabel="three-dots-loading"
-          wrapperStyle={{ justifyContent: 'center' }}
-          visible={true}
-        />
-      )}
-    </div>
+        {loaded && (
+          <ThreeDots
+            height="80"
+            width="80"
+            radius="9"
+            color="blue"
+            ariaLabel="three-dots-loading"
+            wrapperStyle={{ justifyContent: 'center' }}
+            visible={true}
+          />
+        )}
+      </Container>
+    </section>
   );
 };
 

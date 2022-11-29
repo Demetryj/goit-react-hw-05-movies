@@ -38,7 +38,7 @@ const TrendingTodayMovies = () => {
   }, []);
 
   return (
-    <main>
+    <>
       {moviesTrending.length > 1 && (
         <MoviesList movies={moviesTrending} linkTo="movies" />
       )}
@@ -58,7 +58,7 @@ const TrendingTodayMovies = () => {
           visible={true}
         />
       )}
-    </main>
+    </>
   );
 };
 

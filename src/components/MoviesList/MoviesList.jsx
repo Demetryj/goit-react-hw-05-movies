@@ -1,28 +1,35 @@
-import { NavLink, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { MoviesItem, List, Item } from 'components/MoviesList';
 
 const MoviesList = ({ movies, linkTo = false }) => {
   const location = useLocation();
   // console.log(location);
 
   return (
-    <ul>
+    <List>
       {movies.map(movie => {
         return (
-          <li key={movie.id}>
+          <Item key={movie.id}>
             {linkTo ? (
-              <NavLink to={`${linkTo}/${movie.id}`} state={{ from: location }}>
-                {movie.title ? movie.title : movie.name}
-              </NavLink>
+              <Link
+                to={`${linkTo}/${movie.id}`}
+                state={{ from: location }}
+                style={{
+                  textDecoration: 'none',
+                }}
+              >
+                <MoviesItem {...movie} />
+              </Link>
             ) : (
-              <NavLink to={`${movie.id}`} state={{ from: location }}>
-                {movie.title ? movie.title : movie.name}
-              </NavLink>
+              <Link to={`${movie.id}`} state={{ from: location }}>
+                <MoviesItem {...movie} />
+              </Link>
             )}
-          </li>
+          </Item>
         );
       })}
-    </ul>
+    </List>
   );
 };
 
@@ -30,8 +37,6 @@ MoviesList.propTypes = {
   movies: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
-      title: PropTypes.string,
-      name: PropTypes.string,
     }).isRequired
   ).isRequired,
 };

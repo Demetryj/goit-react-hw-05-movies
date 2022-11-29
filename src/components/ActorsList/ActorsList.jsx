@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types';
 import image from 'images/no-image-icon.jpg';
+import { List, Item, ActorName, Character } from 'components/ActorsList';
 
 const ActorsList = ({ actorsInfo }) => {
   return (
-    <ul>
+    <List>
       {actorsInfo.map(({ id, name, character, profile_path }) => {
         return (
-          <li key={id}>
+          <Item key={id}>
             <img
               src={
                 profile_path
@@ -14,14 +15,14 @@ const ActorsList = ({ actorsInfo }) => {
                   : image
               }
               alt={name}
-              width="100"
+              width="150"
             />
-            <p>{name}</p>
-            <p>{character}</p>
-          </li>
+            <ActorName>{name}</ActorName>
+            <Character>{character}</Character>
+          </Item>
         );
       })}
-    </ul>
+    </List>
   );
 };
 

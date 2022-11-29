@@ -18,8 +18,6 @@ export const NavLinkItem = styled(NavLink)`
   color: ${props => props.theme.colors.navLink};
   transition: color 250ms;
 
-  cursor: pointer;
-
   &.active {
     color: ${props => props.theme.colors.accent};
   }

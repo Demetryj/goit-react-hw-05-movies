@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 import { ThreeDots } from 'react-loader-spinner';
 import ReviewsList from 'components/ReviewsList';
 import { fetchMovies } from 'services/fetchMovies';
+import { Container } from 'components/Container';
+import { NoInfo } from 'components/NoInfo/';
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -42,27 +44,29 @@ const Reviews = () => {
 
   console.log(reviews);
   return (
-    <div>
-      {reviews.length > 1 ? (
-        <ReviewsList ReviewsInfo={reviews} />
-      ) : (
-        <p>We don`t have any reviews for this movie.</p>
-      )}
+    <section>
+      <Container>
+        {reviews.length > 1 ? (
+          <ReviewsList ReviewsInfo={reviews} />
+        ) : (
+          <NoInfo>We don`t have any reviews for this movie.</NoInfo>
+        )}
 
-      {error && <p>Something wrong. Try again later.</p>}
+        {error && <p>Something wrong. Try again later.</p>}
 
-      {loaded && (
-        <ThreeDots
-          height="80"
-          width="80"
-          radius="9"
-          color="blue"
-          ariaLabel="three-dots-loading"
-          wrapperStyle={{ justifyContent: 'center' }}
-          visible={true}
-        />
-      )}
-    </div>
+        {loaded && (
+          <ThreeDots
+            height="80"
+            width="80"
+            radius="9"
+            color="blue"
+            ariaLabel="three-dots-loading"
+            wrapperStyle={{ justifyContent: 'center' }}
+            visible={true}
+          />
+        )}
+      </Container>
+    </section>
   );
 };
 
