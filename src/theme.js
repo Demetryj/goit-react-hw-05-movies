@@ -3,6 +3,9 @@ const theme = {
     primaryText: 'rgba(42, 42, 42, 1)',
     navLink: 'rgba(71, 39, 245, 0.8)',
     accent: 'rgba(178, 39, 245, 0.8)',
+    movieNameColor: 'rgba(12, 8, 139, 0.975)',
+    goBackLinkColor: 'rgba(71, 5, 55, 0.8)',
+    accentgoBackLink: 'rgba(241, 8, 26, 0.8)',
     // secondaryText: 'rgb(134 131 131)', //
     // backgroundBody: '#fff', //
     backgroundHeader: 'rgba(110, 160, 163, 0.52)', //
