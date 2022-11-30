@@ -1,20 +1,21 @@
 import PropTypes from 'prop-types';
+import { Form, Input, BtnSearch } from './SearchBox.styled';
 
 const SearchBox = ({ handleSubmit, value, setQueryMovie }) => {
   return (
-    <form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit}>
       <label>
-        <input
+        <Input
           autoComplete="off"
-          autoFocus
+          // autoFocus
           placeholder="Search movie"
           name="query"
           value={value}
           onChange={event => setQueryMovie(event.target.value)}
         />
       </label>
-      <button type="submit">Search</button>
-    </form>
+      <BtnSearch type="submit">Search</BtnSearch>
+    </Form>
   );
 };
 

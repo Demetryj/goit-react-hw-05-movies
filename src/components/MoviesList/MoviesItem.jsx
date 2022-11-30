@@ -1,8 +1,10 @@
 import PropTypes from 'prop-types';
 import image from 'images/no-image-icon.jpg';
 import { Poster, MovieName } from 'components/MoviesList';
+import Box from 'components/Box';
 
 export const MoviesItem = ({ poster_path, title, name }) => {
+  // const url = `https://image.tmdb.org/t/p/w500/${poster_path}`;
   return (
     <>
       <Poster>
@@ -13,11 +15,12 @@ export const MoviesItem = ({ poster_path, title, name }) => {
               : image
           }
           alt={title ? title : name}
-          width="100"
         />
       </Poster>
 
-      <MovieName>{title ? title : name}</MovieName>
+      <Box as="div" p={[2]}>
+        <MovieName>{title ? title : name}</MovieName>
+      </Box>
     </>
   );
 };

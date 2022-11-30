@@ -6,6 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import SearchBox from 'components/SearchBox';
 import MoviesList from 'components/MoviesList';
 import { fetchMovies } from 'services/fetchMovies';
+import { Container } from 'components/Container';
 
 const Movies = () => {
   const [queryMovie, setQueryMovie] = useState('');
@@ -65,23 +66,27 @@ const Movies = () => {
 
   return (
     <main>
-      <SearchBox
-        handleSubmit={handleSubmit}
-        value={queryMovie}
-        setQueryMovie={setQueryMovie}
-      />
-      {query && <MoviesList movies={movies} />}
-      {loaded && (
-        <ThreeDots
-          height="80"
-          width="80"
-          radius="9"
-          color="blue"
-          ariaLabel="three-dots-loading"
-          wrapperStyle={{ justifyContent: 'center' }}
-          visible={true}
-        />
-      )}
+      <section>
+        <Container>
+          <SearchBox
+            handleSubmit={handleSubmit}
+            value={queryMovie}
+            setQueryMovie={setQueryMovie}
+          />
+          {query && <MoviesList movies={movies} />}
+          {loaded && (
+            <ThreeDots
+              height="80"
+              width="80"
+              radius="9"
+              color="blue"
+              ariaLabel="three-dots-loading"
+              wrapperStyle={{ justifyContent: 'center' }}
+              visible={true}
+            />
+          )}
+        </Container>
+      </section>
       <ToastContainer />
     </main>
   );

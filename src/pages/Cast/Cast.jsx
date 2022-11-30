@@ -45,15 +45,13 @@ const Cast = () => {
   return (
     <section>
       <Container>
-        {actors.length > 1 ? (
-          <ActorsList actorsInfo={actors} />
-        ) : (
-          <NoInfo>
-            We don`t have information abaut actors for this movie.
-          </NoInfo>
+        {actors.length > 0 && <ActorsList actorsInfo={actors} />}
+
+        {!loaded && actors.length === 0 && (
+          <NoInfo>We don`t have any reviews for this movie.</NoInfo>
         )}
 
-        {error && <p>Something wrong. Try again later.</p>}
+        {error && <NoInfo>Something wrong. Try again later.</NoInfo>}
 
         {loaded && (
           <ThreeDots

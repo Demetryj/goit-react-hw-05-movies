@@ -4,6 +4,8 @@ import { ThreeDots } from 'react-loader-spinner';
 import { fetchMovies } from 'services/fetchMovies';
 import { getGenresForDetailsMovie } from 'services/getGenresForDetailsMovie';
 import CardMovie from 'components/CardMovie';
+import { NoInfo } from 'components/NoInfo';
+import { Container } from 'components/Container';
 
 const MovieDetails = () => {
   const [movie, setMovie] = useState(null);
@@ -45,7 +47,11 @@ const MovieDetails = () => {
         <CardMovie movie={movie} getGenres={getGenresForDetailsMovie} />
       )}
 
-      {error && <p>Something wrong. Try again later.</p>}
+      {error && (
+        <Container>
+          <NoInfo>Something wrong. Try again later.</NoInfo>
+        </Container>
+      )}
 
       {loaded && (
         <ThreeDots

@@ -5,10 +5,12 @@ import { Title } from 'pages/Home';
 const Home = () => {
   return (
     <main>
-      <Container>
-        <Title>Trending today</Title>
-        <TrendingTodayMovies />
-      </Container>
+      <section>
+        <Container>
+          <Title>Trending today</Title>
+          <TrendingTodayMovies />
+        </Container>
+      </section>
     </main>
   );
 };

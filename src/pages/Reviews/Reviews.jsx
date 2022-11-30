@@ -11,6 +11,7 @@ const Reviews = () => {
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState(null);
   const { movieId } = useParams();
+  console.log(reviews);
 
   const isFirstRender = useRef(true);
 
@@ -46,13 +47,13 @@ const Reviews = () => {
   return (
     <section>
       <Container>
-        {reviews.length > 1 ? (
-          <ReviewsList ReviewsInfo={reviews} />
-        ) : (
+        {reviews.length > 0 && <ReviewsList ReviewsInfo={reviews} />}
+
+        {!loaded && reviews.length === 0 && (
           <NoInfo>We don`t have any reviews for this movie.</NoInfo>
         )}
 
-        {error && <p>Something wrong. Try again later.</p>}
+        {error && <NoInfo>Something wrong. Try again later.</NoInfo>}
 
         {loaded && (
           <ThreeDots

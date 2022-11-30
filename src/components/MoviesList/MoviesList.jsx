@@ -1,6 +1,6 @@
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { MoviesItem, List, Item } from 'components/MoviesList';
+import { MoviesItem, List, Item, LinkItem } from 'components/MoviesList';
 
 const MoviesList = ({ movies, linkTo = false }) => {
   const location = useLocation();
@@ -12,19 +12,13 @@ const MoviesList = ({ movies, linkTo = false }) => {
         return (
           <Item key={movie.id}>
             {linkTo ? (
-              <Link
-                to={`${linkTo}/${movie.id}`}
-                state={{ from: location }}
-                style={{
-                  textDecoration: 'none',
-                }}
-              >
+              <LinkItem to={`${linkTo}/${movie.id}`} state={{ from: location }}>
                 <MoviesItem {...movie} />
-              </Link>
+              </LinkItem>
             ) : (
-              <Link to={`${movie.id}`} state={{ from: location }}>
+              <LinkItem to={`${movie.id}`} state={{ from: location }}>
                 <MoviesItem {...movie} />
-              </Link>
+              </LinkItem>
             )}
           </Item>
         );
