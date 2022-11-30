@@ -9,12 +9,12 @@ const theme = {
     // secondaryText: 'rgb(134 131 131)', //
     // backgroundBody: '#fff', //
     backgroundHeader: 'rgba(110, 160, 163, 0.52)', //
-    // backgroundAccentBtn: 'rgba(11, 38, 222)',
+    backgroundAccentBtn: 'rgba(11, 38, 222)',
     // backgroundAccentDeleteBtn: 'rgba(255, 0, 0)',
-    // backgroundBtn: 'rgba(84, 101, 221, 0.7)',
+    backgroundBtn: 'rgba(84, 101, 221, 0.7)',
     // accent: 'rgba(37, 40, 239, 0.685)',
     // red: '#f00', //
-    // white: 'white',
+    white: 'rgba(255, 255, 255, 1)',
     // green: 'green', //
     // black: '#2a2a2a',
     // borderColor: 'rgba(86, 89, 89, 0.52)',
