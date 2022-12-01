@@ -6,7 +6,7 @@ export const Container = styled.div`
   margin-right: auto;
 
   padding-top: ${props => props.theme.space[4]}px;
-  padding-bottom: ${props => props.theme.space[5]}px;
+  padding-bottom: ${props => props.theme.space[4]}px;
   padding-left: ${props => props.theme.space[4]}px;
   padding-right: ${props => props.theme.space[4]}px;
 `;

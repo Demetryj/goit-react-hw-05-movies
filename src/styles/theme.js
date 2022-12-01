@@ -1,4 +1,4 @@
-const theme = {
+export const theme = {
   colors: {
     primaryText: 'rgba(42, 42, 42, 1)',
     navLink: 'rgba(71, 39, 245, 0.8)',
@@ -6,18 +6,11 @@ const theme = {
     movieNameColor: 'rgba(12, 8, 139, 0.975)',
     goBackLinkColor: 'rgba(71, 5, 55, 0.8)',
     accentgoBackLink: 'rgba(241, 8, 26, 0.8)',
-    // secondaryText: 'rgb(134 131 131)', //
-    // backgroundBody: '#fff', //
-    backgroundHeader: 'rgba(110, 160, 163, 0.52)', //
+    backgroundHeader: 'rgba(110, 160, 163, 0.52)',
     backgroundAccentBtn: 'rgba(11, 38, 222)',
-    // backgroundAccentDeleteBtn: 'rgba(255, 0, 0)',
     backgroundBtn: 'rgba(84, 101, 221, 0.7)',
-    // accent: 'rgba(37, 40, 239, 0.685)',
-    // red: '#f00', //
+    borderColor: 'rgba(110, 160, 163, 0.52)',
     white: 'rgba(255, 255, 255, 1)',
-    // green: 'green', //
-    // black: '#2a2a2a',
-    // borderColor: 'rgba(86, 89, 89, 0.52)',
   },
 
   space: [0, 2, 4, 8, 16, 32, 64, 128, 256],
@@ -64,5 +57,3 @@ const theme = {
       'rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px',
   },
 };
-
-export default theme;

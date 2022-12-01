@@ -1,6 +1,10 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
+export const Header = styled.header`
+  background-color: ${props => props.theme.colors.backgroundHeader};
+`;
+
 export const Navigation = styled.nav`
   display: inline-flex;
   gap: ${props => props.theme.space[5]}px;

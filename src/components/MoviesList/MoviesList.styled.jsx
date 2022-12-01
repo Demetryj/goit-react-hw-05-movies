@@ -27,7 +27,8 @@ export const Item = styled.li`
 `;
 
 export const LinkItem = styled(Link)`
-  text-decoration: none;
   display: block;
   height: 100%;
+
+  text-decoration: none;
 `;

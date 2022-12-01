@@ -1,45 +1,30 @@
 import styled from 'styled-components';
-import { Link, NavLink } from 'react-router-dom';
-
-export const GoBackLink = styled(Link)`
-  display: flex;
-  align-items: center;
-  gap: ${props => props.theme.space[3]}px;
-
-  padding: ${props => props.theme.space[3]}px;
-  padding-left: ${props => props.theme.space[0]}px;
-
-  font-family: ${props => props.theme.fonts.body};
-
-  color: ${props => props.theme.colors.goBackLinkColor};
-
-  transition: color 250ms;
-
-  :hover,
-  :focus {
-    color: ${props => props.theme.colors.accentgoBackLink};
-  }
-
-  text-decoration: none;
-`;
+import { NavLink } from 'react-router-dom';
 
 export const Wrapper = styled.div`
   display: flex;
   gap: ${props => props.theme.space[4]}px;
+  margin-bottom: ${props => props.theme.space[4]}px;
+`;
+
+export const WrapperImage = styled.div`
+  width: 250px;
+  height: 350px;
 `;
 
 export const ImageMovie = styled.img`
-  width: 250px;
-  height: 350px;
+  width: 100%;
+  height: 100%;
 `;
 
 export const Info = styled.div`
   display: flex;
   flex-direction: column;
   gap: ${props => props.theme.space[4]}px;
+  flex-basis: calc(100% - 266px);
 `;
 
-export const MovieName = styled.h2`
+export const MovieName = styled.h1`
   font-family: ${props => props.theme.fonts.heading};
   font-weight: ${props => props.theme.fontWeights.heading};
   font-size: ${props => props.theme.fontSizes.l};

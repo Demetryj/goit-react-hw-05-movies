@@ -1,28 +1,19 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-import Box from 'components/Box';
-import { Navigation, NavLinkItem } from 'components/SharedLayout';
+import { Header, Navigation, NavLinkItem } from 'components/SharedLayout';
+import { Container } from 'components/Container';
 
 const SharedLayout = () => {
   return (
     <>
-      <header>
-        <Box
-          maxWidth={1200}
-          px={[4]}
-          py={[3]}
-          boxShadow="third"
-          my={[0]}
-          mx="auto"
-          bg="backgroundHeader"
-          as="div"
-        >
+      <Header>
+        <Container>
           <Navigation>
             <NavLinkItem to="/">Home</NavLinkItem>
             <NavLinkItem to="movies">Movies</NavLinkItem>
           </Navigation>
-        </Box>
-      </header>
+        </Container>
+      </Header>
       <Suspense fallback={null}>
         <Outlet />
       </Suspense>

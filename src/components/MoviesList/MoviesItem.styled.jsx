@@ -4,6 +4,7 @@ export const Poster = styled.div`
   height: 300px;
 
   img {
+    width: 100%;
     height: 100%;
   }
 `;
