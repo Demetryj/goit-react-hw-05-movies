@@ -11,16 +11,9 @@ export const useMovies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('query') ?? '';
 
-  // const isFirstRender = useRef(true);
-
   useEffect(() => {
     const searchQuery = async () => {
       try {
-        // if (isFirstRender.current) {
-        //   isFirstRender.current = false;
-        //   return;
-        // }
-
         if (query === '') {
           return;
         }
