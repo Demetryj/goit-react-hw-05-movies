@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchMovies } from 'services/fetchMovies';
 
@@ -8,16 +8,9 @@ export const useCast = () => {
   const [error, setError] = useState(null);
   const { movieId } = useParams();
 
-  const isFirstRender = useRef(true);
-
   useEffect(() => {
     const fetch = async () => {
       try {
-        if (isFirstRender.current) {
-          isFirstRender.current = false;
-          return;
-        }
-
         setLoaded(true);
 
         const dataActorsMovie = await fetchMovies(
