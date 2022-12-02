@@ -6,7 +6,6 @@ import ActorsList from 'components/ActorsList';
 // import { fetchMovies } from 'services/fetchMovies';
 import { Container } from 'components/Container';
 import { NoInfo } from 'components/NoInfo/';
-import { useLocation } from 'react-router-dom';
 
 const Cast = () => {
   // const [actors, setActors] = useState([]);
