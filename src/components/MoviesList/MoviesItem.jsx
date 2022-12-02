@@ -4,7 +4,6 @@ import { Poster, MovieName } from 'components/MoviesList';
 import Box from 'components/Box';
 
 export const MoviesItem = ({ poster_path, title, name }) => {
-  // const url = `https://image.tmdb.org/t/p/w500/${poster_path}`;
   return (
     <>
       <Poster>
