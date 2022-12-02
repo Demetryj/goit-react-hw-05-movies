@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { fetchMovies } from 'services/fetchMovies';
 
 export const useTrendingTodayMovies = () => {
@@ -6,15 +6,15 @@ export const useTrendingTodayMovies = () => {
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState(null);
 
-  const isFirstRender = useRef(true);
+  // const isFirstRender = useRef(true);
 
   useEffect(() => {
     const fetch = async () => {
       try {
-        if (isFirstRender.current) {
-          isFirstRender.current = false;
-          return;
-        }
+        // if (isFirstRender.current) {
+        //   isFirstRender.current = false;
+        //   return;
+        // }
 
         setLoaded(true);
 
