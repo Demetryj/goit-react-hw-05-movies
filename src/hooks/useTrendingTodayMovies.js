@@ -35,5 +35,5 @@ export const useTrendingTodayMovies = () => {
     fetch();
   }, []);
 
-  return { moviesTrending, loaded, error, isFirstRender };
+  return { moviesTrending, loaded, error };
 };
