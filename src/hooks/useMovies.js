@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { fetchMovies } from 'services/fetchMovies';
@@ -11,15 +11,15 @@ export const useMovies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('query') ?? '';
 
-  const isFirstRender = useRef(true);
+  // const isFirstRender = useRef(true);
 
   useEffect(() => {
     const searchQuery = async () => {
       try {
-        if (isFirstRender.current) {
-          isFirstRender.current = false;
-          return;
-        }
+        // if (isFirstRender.current) {
+        //   isFirstRender.current = false;
+        //   return;
+        // }
 
         if (query === '') {
           return;
