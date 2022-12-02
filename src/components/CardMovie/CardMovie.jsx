@@ -75,12 +75,15 @@ const CardMovie = ({
                    яки було бпередано у цей маршрут ('/movies/:movieId') за посиланням з маршруту '/movies', 
                    щоб при натисканні на посилання Go back повернутися із маршрута ('/movies/:movieId/cast')
                    або ('/movies/:movieId/reviews) на маршрут '/movies'*/}
-                <NavLinkItem to="cast" state={{ from: location.state.from }}>
+                <NavLinkItem to="cast" state={{ from: location.state?.from }}>
                   Cast
                 </NavLinkItem>
               </li>
               <li>
-                <NavLinkItem to="reviews" state={{ from: location.state.from }}>
+                <NavLinkItem
+                  to="reviews"
+                  state={{ from: location.state?.from }}
+                >
                   Reviews
                 </NavLinkItem>
               </li>
