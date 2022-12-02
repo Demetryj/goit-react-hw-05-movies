@@ -2,6 +2,10 @@ import styled from 'styled-components';
 
 export const Item = styled.li`
   margin-bottom: ${props => props.theme.space[5]}px;
+  padding: ${props => props.theme.space[3]}px;
+
+  border-radius: ${props => props.theme.radii.normal};
+  box-shadow: ${props => props.theme.shadows.second};
 
   list-style: none;
 `;

@@ -6,6 +6,7 @@ import ActorsList from 'components/ActorsList';
 // import { fetchMovies } from 'services/fetchMovies';
 import { Container } from 'components/Container';
 import { NoInfo } from 'components/NoInfo/';
+import { useLocation } from 'react-router-dom';
 
 const Cast = () => {
   // const [actors, setActors] = useState([]);
@@ -46,29 +47,31 @@ const Cast = () => {
   const { actors, loaded, error } = useCast();
 
   return (
-    <>
-      {actors && actors.length > 0 && <ActorsList actorsInfo={actors} />}
+    <section>
+      <Container>
+        {actors && actors.length > 0 && <ActorsList actorsInfo={actors} />}
 
-      {actors && actors.length === 0 && (
-        <NoInfo>
-          We don't have any information about actors for this movie.
-        </NoInfo>
-      )}
+        {actors && actors.length === 0 && (
+          <NoInfo>
+            We don't have any information about actors for this movie.
+          </NoInfo>
+        )}
 
-      {error && <NoInfo>Something wrong. Try again later.</NoInfo>}
+        {error && <NoInfo>Something wrong. Try again later.</NoInfo>}
 
-      {loaded && (
-        <ThreeDots
-          height="80"
-          width="80"
-          radius="9"
-          color="blue"
-          ariaLabel="three-dots-loading"
-          wrapperStyle={{ justifyContent: 'center' }}
-          visible={true}
-        />
-      )}
-    </>
+        {loaded && (
+          <ThreeDots
+            height="80"
+            width="80"
+            radius="9"
+            color="blue"
+            ariaLabel="three-dots-loading"
+            wrapperStyle={{ justifyContent: 'center' }}
+            visible={true}
+          />
+        )}
+      </Container>
+    </section>
   );
 };
 

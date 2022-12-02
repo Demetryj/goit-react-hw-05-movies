@@ -1,10 +1,8 @@
-import { Suspense } from 'react';
-import { Outlet } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
-
+import { HiArrowNarrowLeft } from 'react-icons/hi';
 import image from 'images/no-image-icon.jpg';
-import { Container } from 'components/Container';
-
+import { GoBackLink } from 'components/GoBackLink';
 import { getDateYear } from 'services/getDateYear';
 import { getScore } from 'services/getScore';
 import {
@@ -32,8 +30,16 @@ const CardMovie = ({
   },
   getGenres,
 }) => {
+  const location = useLocation();
+
   return (
     <>
+      <GoBackLink to={location.state?.from ?? '/'}>
+        {/* <NavLink to={location.state?.from ?? "/"}>  вказувати альтернативний варіант шляху*/}
+        <HiArrowNarrowLeft />
+        <p>Go back</p>
+      </GoBackLink>
+
       <Wrapper>
         <WrapperImage>
           <ImageMovie
@@ -64,19 +70,24 @@ const CardMovie = ({
             <AdditionalInfo>Additional information:</AdditionalInfo>
             <AdditionalInfoList>
               <li>
-                <NavLinkItem to="cast">Cast,</NavLinkItem>
+                {/* Передаємо пропсом state (властивість об'єкта місцезнаходження location), 
+                  об'єкт з властивістю from, значення якого - це значення властивості from із об'єкта location,
+                   яки було бпередано у цей маршрут ('/movies/:movieId') за посиланням з маршруту '/movies', 
+                   щоб при натисканні на посилання Go back повернутися із маршрута ('/movies/:movieId/cast')
+                   або ('/movies/:movieId/reviews) на маршрут '/movies'*/}
+                <NavLinkItem to="cast" state={{ from: location.state.from }}>
+                  Cast
+                </NavLinkItem>
               </li>
               <li>
-                <NavLinkItem to="reviews">Reviews</NavLinkItem>
+                <NavLinkItem to="reviews" state={{ from: location.state.from }}>
+                  Reviews
+                </NavLinkItem>
               </li>
             </AdditionalInfoList>
           </Wrapper>
         </Info>
       </Wrapper>
-
-      <Suspense fallback={null}>
-        <Outlet />
-      </Suspense>
     </>
   );
 };

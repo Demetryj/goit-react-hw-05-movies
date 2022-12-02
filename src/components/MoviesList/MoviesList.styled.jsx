@@ -13,6 +13,8 @@ export const Item = styled.li`
   margin-left: ${props => props.theme.space[5]}px;
   flex-basis: calc(100% / 5 - ${props => props.theme.space[5]}px);
 
+  overflow: hidden;
+
   list-style: none;
   border-radius: ${props => props.theme.radii.normal};
   box-shadow: ${props => props.theme.shadows.first};

@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import image from 'images/no-image-icon.jpg';
 import {
-  Border,
   List,
   Item,
   WrapperImg,
@@ -12,7 +11,6 @@ import {
 const ActorsList = ({ actorsInfo }) => {
   return (
     <>
-      <Border></Border>
       <List>
         {actorsInfo.map(({ id, name, character, profile_path }) => {
           return (

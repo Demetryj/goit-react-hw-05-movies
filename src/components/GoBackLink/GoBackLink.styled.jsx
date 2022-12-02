@@ -7,7 +7,6 @@ export const GoBackLink = styled(Link)`
   gap: ${props => props.theme.space[3]}px;
 
   margin-bottom: ${props => props.theme.space[3]}px;
-  padding: ${props => props.theme.space[3]}px;
   padding-left: ${props => props.theme.space[0]}px;
 
   font-family: ${props => props.theme.fonts.body};

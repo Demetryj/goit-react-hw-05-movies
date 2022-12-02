@@ -1,13 +1,16 @@
 import { ThreeDots } from 'react-loader-spinner';
 import { useTrendingTodayMovies } from 'hooks/useTrendingTodayMovies';
-import MoviesList from '../MoviesList';
+import MoviesList from 'components/MoviesList';
 import { NoInfo } from 'components/NoInfo';
+import { Title } from './TrendingTodayMovies.styled';
 
 const TrendingTodayMovies = () => {
   const { moviesTrending, loaded, error } = useTrendingTodayMovies();
 
   return (
     <>
+      <Title>Trending today</Title>
+
       {moviesTrending.length > 1 && (
         <MoviesList movies={moviesTrending} linkTo="movies" />
       )}

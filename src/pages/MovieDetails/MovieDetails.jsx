@@ -1,12 +1,11 @@
 // import { useState, useEffect, useRef } from 'react';
 // import { useParams } from 'react-router-dom';
-import { useLocation } from 'react-router-dom';
+import { Suspense } from 'react';
+import { Outlet } from 'react-router-dom';
 import { ThreeDots } from 'react-loader-spinner';
-import { HiArrowNarrowLeft } from 'react-icons/hi';
 // import { fetchMovies } from 'services/fetchMovies';
 import { useMovieDetails } from 'hooks/useMovieDetails';
 import { getGenresForDetailsMovie } from 'services/getGenresForDetailsMovie';
-import { GoBackLink } from 'components/GoBackLink';
 import CardMovie from 'components/CardMovie';
 import { NoInfo } from 'components/NoInfo';
 import { Container } from 'components/Container';
@@ -45,20 +44,12 @@ const MovieDetails = () => {
   //   fetch();
   // }, [movieId]);
 
-  const location = useLocation();
-
   const { movie, loaded, error } = useMovieDetails();
 
   return (
     <main>
       <section>
         <Container>
-          <GoBackLink to={location.state?.from ?? '/'}>
-            {/* <NavLink to={location.state?.from ?? "/"}>  вказувати альтернативний варіант шляху*/}
-            <HiArrowNarrowLeft />
-            <p>Go back</p>
-          </GoBackLink>
-
           {movie && (
             <CardMovie movie={movie} getGenres={getGenresForDetailsMovie} />
           )}
@@ -82,6 +73,10 @@ const MovieDetails = () => {
           )}
         </Container>
       </section>
+
+      <Suspense fallback={null}>
+        <Outlet />
+      </Suspense>
     </main>
   );
 };

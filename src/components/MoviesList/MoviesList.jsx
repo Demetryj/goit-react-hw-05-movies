@@ -4,7 +4,6 @@ import { MoviesItem, List, Item, LinkItem } from 'components/MoviesList';
 
 const MoviesList = ({ movies, linkTo = false }) => {
   const location = useLocation();
-  // console.log(location);
 
   return (
     <List>

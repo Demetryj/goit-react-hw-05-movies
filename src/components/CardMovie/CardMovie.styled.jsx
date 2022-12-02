@@ -4,7 +4,6 @@ import { NavLink } from 'react-router-dom';
 export const Wrapper = styled.div`
   display: flex;
   gap: ${props => props.theme.space[4]}px;
-  margin-bottom: ${props => props.theme.space[4]}px;
 `;
 
 export const WrapperImage = styled.div`
