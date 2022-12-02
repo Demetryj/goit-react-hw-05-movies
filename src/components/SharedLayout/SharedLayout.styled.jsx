@@ -1,7 +1,8 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
+import { Container } from 'components/Container';
 
-export const Header = styled.header`
+export const ContainerHeader = styled(Container)`
   background-color: ${props => props.theme.colors.backgroundHeader};
 `;
 
