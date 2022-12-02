@@ -6,15 +6,12 @@ export const useTrendingTodayMovies = () => {
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState(null);
 
-  // const isFirstRender = useRef(true);
+
 
   useEffect(() => {
     const fetch = async () => {
       try {
-        // if (isFirstRender.current) {
-        //   isFirstRender.current = false;
-        //   return;
-        // }
+       
 
         setLoaded(true);
 
