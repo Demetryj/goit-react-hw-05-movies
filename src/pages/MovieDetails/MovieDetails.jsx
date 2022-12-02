@@ -50,7 +50,7 @@ const MovieDetails = () => {
     <main>
       <section>
         <Container>
-          {movie && (
+          {movie.length > 0 && (
             <CardMovie movie={movie} getGenres={getGenresForDetailsMovie} />
           )}
 
