@@ -8,16 +8,9 @@ export const useMovieDetails = () => {
   const [error, setError] = useState(null);
   const { movieId } = useParams();
 
-  // const isFirstRender = useRef(true);
-
   useEffect(() => {
     const fetch = async () => {
       try {
-        // if (isFirstRender.current) {
-        //   isFirstRender.current = false;
-        //   return;
-        // }
-
         setLoaded(true);
 
         const dataMovie = await fetchMovies(
