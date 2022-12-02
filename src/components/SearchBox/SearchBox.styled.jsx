@@ -7,9 +7,10 @@ export const Form = styled.form`
 
 export const Input = styled.input`
   margin-right: ${props => props.theme.space[3]}px;
+  padding: ${props => props.theme.space[3]}px;
 
   width: 300px;
-  height: 30px;
+  height: 40px;
 
   border-radius: ${props => props.theme.radii.normal};
 
@@ -19,9 +20,9 @@ export const Input = styled.input`
 `;
 
 export const BtnSearch = styled.button`
-  padding-left: ${props => props.theme.space[3]}px;
-  padding-right: ${props => props.theme.space[3]}px;
-  height: 30px;
+  padding-left: ${props => props.theme.space[4]}px;
+  padding-right: ${props => props.theme.space[4]}px;
+  height: 40px;
   color: ${props => props.theme.colors.primaryText};
   background-color: ${props => props.theme.colors.backgroundBtn};
 
