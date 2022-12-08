@@ -19,7 +19,7 @@ export const useCast = () => {
 
         const dataCast = dataActorsMovie.cast;
 
-        setActors([...dataCast]);
+        setActors(dataCast);
       } catch (error) {
         console.log(error.message);
         setError(error);

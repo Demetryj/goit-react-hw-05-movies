@@ -6,13 +6,9 @@ export const useTrendingTodayMovies = () => {
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState(null);
 
-
-
   useEffect(() => {
     const fetch = async () => {
       try {
-       
-
         setLoaded(true);
 
         const dataMovies = await fetchMovies(
@@ -21,7 +17,7 @@ export const useTrendingTodayMovies = () => {
 
         const movies = dataMovies.results;
 
-        setMoviesTrending([...movies]);
+        setMoviesTrending(movies);
       } catch (error) {
         console.log(error);
         setError(error);

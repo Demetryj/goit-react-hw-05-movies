@@ -19,7 +19,7 @@ export const useReviews = () => {
 
         const dataReviews = dataReviewsMovie.results;
 
-        setReviews([...dataReviews]);
+        setReviews(dataReviews);
       } catch (error) {
         console.log(error.message);
         setError(error);

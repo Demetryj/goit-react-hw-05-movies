@@ -33,7 +33,7 @@ export const useMovies = () => {
           return;
         }
 
-        setMovies([...moviesList]);
+        setMovies(moviesList);
       } catch (error) {
         console.log(error.mesage);
         setError(error);
